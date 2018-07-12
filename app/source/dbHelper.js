@@ -19,22 +19,18 @@ class MongoHelper{
                 callback(result);
         });
     }
-    SaveRecord(record){
+    SaveRecord(collectionName,arrayOfRecords){
         MongoClient.connect(this.connectionString, function(err, db) {
             if(!err){
                 console.log("Connected successfully to server");
 
                 // Get the documents collection
-                var collection = db.collection(record["$type"]);
-                delete record["$type"]; //delete this before inserting into db
+                var collection = db.collection(collectionName);
 
-                collection.insert(record, function(err, result) {
+                collection.insertMany(arrayOfRecords, function(err, result) {
                         console.log("Inserted into the collection");
-                        //callback(result);
                 });
-                //insertDocuments(db, record,function() {
-                    db.close();
-               // });
+                db.close();
             }
         });
     }
