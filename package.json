@@ -1,5 +1,5 @@
 {
-  "name": "node-api",
+  "name": "api",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -32,5 +32,15 @@
         }
       ]
     ]
-  }
+  },
+  "description": "- Node and npm",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgummadidala/jsonfileimport_mongo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sgummadidala/jsonfileimport_mongo/issues"
+  },
+  "homepage": "https://github.com/sgummadidala/jsonfileimport_mongo#readme"
 }
