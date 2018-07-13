@@ -22,6 +22,21 @@ class MongoHelper{
             }
         });
     }
+    RemoveRecord(collectionName,arrayOfRecords){
+        MongoClient.connect(this.connectionString, function(err, db) {
+            if(!err){
+                console.log("Connected successfully to server");
+
+                // Get the documents collection
+                var collection = db.collection(collectionName);
+
+                collection.remove(arrayOfRecords, function(err, result) {
+                        console.log("Records deleted from the collection.");
+                });
+                db.close();
+            }
+        });
+    }
 }
 
 module.exports=MongoHelper;
