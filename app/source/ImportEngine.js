@@ -63,13 +63,18 @@ class ImportEngine {
         var recordsToBeSaved = this.ParseFileContent();
         
         //Step-2 => Delete if there are any existing records in db.
-        this.VerifyAndDeleteIfRecordExists(recordsToBeSaved);
+       // this.VerifyAndDeleteIfRecordExists(recordsToBeSaved);
 
         //Step-3: Groud Records for batch insertion
         var groupedRecordsByCollectionName = this.GroupRecordByCollectionName(recordsToBeSaved);
 
         //Step-4: Trigger batch insertion command
-        this.saveRecords(groupedRecordsByCollectionName);
+       // this.saveRecords(groupedRecordsByCollectionName);
+
+       //var mongoDBHelper = new dbHelper();
+       //mongoDBHelper.processRecords(groupedRecordsByCollectionName);
+       dbHelper(groupedRecordsByCollectionName);
+
     }
 }
 
